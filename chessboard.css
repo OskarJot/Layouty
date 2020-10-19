@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', arial;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #171717;
+    font-family: 'Roboto' , sans-serif;
+    color: white;
+    padding: 100px 50px;
+}
+
+.container {
+    counter-reset: section;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 300px 50px;
+}
+
+.article {
+    position: relative;
+}
+
+.article:nth-child(odd) {
+    grid-column: 2;
+}
+
+.article:nth-child(even) {
+    grid-column: 1;
+}
+
+.article::before {
+    counter-increment: section;
+    z-index: -1;
+    position: absolute;
+    font-size: 530px;
+    font-weight: bold;
+    top: -60%;
+    content: counter(section);
+    color: #363636;
+}
+
+.article:nth-child(odd)::before {
+    left: -20%;
+}
+
+.article:nth-child(even)::before {
+    right: -20%;
+}
+
+.article_header {
+    font-size: 48px;
+}
+
+.article_paragraph {
+    font-size: 21px;
+}
